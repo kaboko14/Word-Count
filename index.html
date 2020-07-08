@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORD COUNTER</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>単語の数を調べます</h1>
+    <div class="container">
+      <div class="form">
+        <textarea v-model="text" name="" id="" cols="30" rows="10" placeholder="英文を入力してください" class="textarea"></textarea>
+        <br>
+        <button @click="makeWordList"> start </button>
+        <button @click="formReset"> reset </button>
+      </div>
+      <div class="list">
+        <ul class="word-list" v-if="words.length">
+          <li v-for="wordItem in words" class="word-list-item">{{wordItem.word}} : {{wordItem.count}}</li>
+        </ul>
+        <p v-else>ここに表示されます</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
